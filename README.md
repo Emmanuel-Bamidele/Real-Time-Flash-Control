@@ -13,6 +13,7 @@ For questions, inquiries, and permissions related to the use and distribution of
 Emmanuel Bamidele
 Email: correspondence.bamidele@gmail.com
 Website: www.emmanuelbamidele.com
+
 -------------------------------------------
       LICENSE INFORMATION
 -------------------------------------------
@@ -33,6 +34,7 @@ Date: August 2023
 -------------------------------------------
 The Real-time Flash Experiment Control and Visualization software is provided "as is" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
 The software is intended for research and educational purposes only. It is the responsibility of the user to ensure proper operation and adherence to all applicable laws and regulations while using this software.
+
 -------------------------------------------
     CITATION INFORMATION
 -------------------------------------------
@@ -52,6 +54,7 @@ Software at a Glance The Real-Time Flash Control software is a cutting-edge tool
 Your Path to Mastery As you navigate through this documentation, you'll explore every facet of the software, from its fundamental principles to its intricate functionalities. Each section is meticulously crafted to provide you with a detailed understanding of the software's architecture, features, and practical applications. Whether you're aiming to conduct flash experiments with precision or seeking to unravel transient phenomena through real-time data visualization, this documentation will equip you with the knowledge and tools to succeed.
 Unveiling Each Layer From the user-friendly GUI to the seamless integration with data acquisition hardware, from live plotting that offers dynamic insights to the meticulous organization of your experimental data, each layer of the software will be peeled back, revealing the mechanisms that empower your research pursuits. By the end of this documentation, you'll not only comprehend the software but also confidently wield it to propel your research endeavors forward.
 Are you ready to embark on this journey of exploration and mastery? Let's dive into the intricate world of the Real-Time Flash Control software and unlock its full potential for your research! 
+
 
 -------------------------------------------
    1. INTRODUCTION
@@ -85,7 +88,8 @@ Navigating the software is effortless thanks to its intuitive GUI. Experiment pa
 2.6 Adaptability
 Every experiment is unique, and the software acknowledges that. It can be tailored to suit a variety of experimental setups and requirements. Whether you're studying material properties, electrical phenomena, or other dynamic processes, the software can be configured to meet your specific needs.
 Stay tuned as we delve deeper into each feature of the software, providing you with a comprehensive understanding of how to effectively use the Real-Time Flash Control software for your research goals.
- 
+
+ 
 -------------------------------------------------------------------------------
    3.UNDERSTANDING THE PROGRAM COMPONENT: CLASSES AND FUNCTIONS
 -------------------------------------------------------------------------------
@@ -153,7 +157,8 @@ These functions handle interactions with the graphical user interface (GUI) elem
 
 The application's code is modular, allowing you to understand and modify specific components without affecting the entire application. The GUI part provides the user interface for interaction, while the non-GUI part contains the core logic for data acquisition, hardware control, and visualization.
 Understanding the interactions and dependencies between classes and functions will enable you to confidently navigate, modify, and extend the application to meet your specific experimental requirements.
- 
+
+ 
 -------------------------------------------------------------------------------
    4.DETAILED DESCRIPTION OF FUNCTIONS AND CLASSES
 -------------------------------------------------------------------------------

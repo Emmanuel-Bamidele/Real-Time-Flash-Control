@@ -23,9 +23,11 @@ https://www.apache.org/licenses/LICENSE-2.0
 -------------------------------------------
      VERSION INFORMATION
 -------------------------------------------
+
 Real-time Flash Experiment Control and Visualization software
 Version: 1.0
 Date: August 2023
+
 -------------------------------------------
                  DISCLAIMER
 -------------------------------------------
@@ -42,21 +44,27 @@ https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
 
 Documentation is available on ResearchGate.  
 
-SUMMARY
+-------------------------------------------
+    SUMMARY
+-------------------------------------------
 Welcome to the Comprehensive Documentation for the Real-Time Flash Control Software! This documentation serves as your comprehensive guide to understanding, utilizing, and maximizing the potential of the Real-Time Flash Control software. Whether you're an experienced researcher seeking to optimize your flash experiments or a newcomer eager to grasp the nuances of the software, this documentation is tailored to cater to your needs.
 Software at a Glance The Real-Time Flash Control software is a cutting-edge tool designed to enhance and streamline flash experiments. It offers real-time control, data acquisition, live plotting, and data storage capabilities, all wrapped within an intuitive graphical user interface (GUI). By delving into this documentation, you're embarking on a journey to harness the power of this software for advancing your research in materials science, physics, and engineering.
 Your Path to Mastery As you navigate through this documentation, you'll explore every facet of the software, from its fundamental principles to its intricate functionalities. Each section is meticulously crafted to provide you with a detailed understanding of the software's architecture, features, and practical applications. Whether you're aiming to conduct flash experiments with precision or seeking to unravel transient phenomena through real-time data visualization, this documentation will equip you with the knowledge and tools to succeed.
 Unveiling Each Layer From the user-friendly GUI to the seamless integration with data acquisition hardware, from live plotting that offers dynamic insights to the meticulous organization of your experimental data, each layer of the software will be peeled back, revealing the mechanisms that empower your research pursuits. By the end of this documentation, you'll not only comprehend the software but also confidently wield it to propel your research endeavors forward.
 Are you ready to embark on this journey of exploration and mastery? Let's dive into the intricate world of the Real-Time Flash Control software and unlock its full potential for your research! 
 
-1.	Introduction
+-------------------------------------------
+   1. INTRODUCTION
+-------------------------------------------
 In this section, you would introduce the purpose of the documentation, the software, and its relevance. You'd provide an overview of what the software does and the benefits it offers to researchers and scientists. The introduction sets the stage for the rest of the documentation by highlighting the importance of the software and its potential impact on flash experiments.
 1.1 Purpose
 The purpose of this documentation is to guide you through every aspect of the Real-Time Flash Control software. Whether you're an experienced researcher looking to optimize your flash experiments or a newcomer eager to understand the capabilities of the software, this documentation is tailored to meet your needs.
 1.2 Scope
 In this documentation, we will cover everything from the fundamental principles of flash experiments to the intricate details of the software's user interface, data acquisition methods, real-time visualization, and data storage. By the end, you'll be equipped with the knowledge and skills to confidently utilize the Real-Time Flash Control software for your research endeavors.
 
-2.	Software Overview
+-------------------------------------------
+   2. SOFTWARE OVERVIEW
+-------------------------------------------
 The Real-Time Flash Control software is a cutting-edge tool designed to enhance and streamline flash experiments. It offers real-time control, data acquisition, live plotting, and data storage capabilities, all within an intuitive graphical user interface (GUI). Let's explore its core features in detail:
 
 2.1 Real-Time Control
@@ -78,7 +86,9 @@ Navigating the software is effortless thanks to its intuitive GUI. Experiment pa
 Every experiment is unique, and the software acknowledges that. It can be tailored to suit a variety of experimental setups and requirements. Whether you're studying material properties, electrical phenomena, or other dynamic processes, the software can be configured to meet your specific needs.
 Stay tuned as we delve deeper into each feature of the software, providing you with a comprehensive understanding of how to effectively use the Real-Time Flash Control software for your research goals.
  
-3. Understanding the Application Components: Classes and Functions
+-------------------------------------------------------------------------------
+   3.UNDERSTANDING THE PROGRAM COMPONENT: CLASSES AND FUNCTIONS
+-------------------------------------------------------------------------------
 In this section, we'll delve into the details of the key classes and functions that constitute the real-time data acquisition and monitoring application. Understanding these components is crucial for effectively utilizing, modifying, and extending the application to suit your research needs.
 
 3.1 Classes Overview 
@@ -144,7 +154,9 @@ These functions handle interactions with the graphical user interface (GUI) elem
 The application's code is modular, allowing you to understand and modify specific components without affecting the entire application. The GUI part provides the user interface for interaction, while the non-GUI part contains the core logic for data acquisition, hardware control, and visualization.
 Understanding the interactions and dependencies between classes and functions will enable you to confidently navigate, modify, and extend the application to meet your specific experimental requirements.
  
-4. Detailed Explanation of Classes and Functions 
+-------------------------------------------------------------------------------
+   4.DETAILED DESCRIPTION OF FUNCTIONS AND CLASSES
+-------------------------------------------------------------------------------
 
 4.1 The AppRunModule Class
 
@@ -243,7 +255,9 @@ The interaction between the classes and functions creates a cohesive and functio
 Understanding the role of each class and function, along with their interactions, is essential for effectively utilizing and potentially modifying the application to suit specific research or experimental requirements.
 
  
-5. Using the Software: Step by Step Guide
+-------------------------------------------------------------------------------
+   5.STEP-BY-STEP GUIDE ON USING THE SOFTWARE
+-------------------------------------------------------------------------------
 
 This section provides a detailed step-by-step guide on how to use the Real-Time Flash Control software for conducting flash experiments and acquiring real-time data.
 
@@ -373,7 +387,9 @@ python flash_control_v1.py
 The Real-Time Flash Control software is designed to be customizable to suit various experimental setups. Advanced users familiar with Python programming can modify and extend the code to include additional features or adapt it for specific requirements. Before making any modifications, ensure you have a good understanding of the code and its functionality.
  
 
-6. Conclusion and Future Enhancements 
+-------------------------------------------------------------------------------
+   6.CONCLUSION AND FUTURE ENHANCEMENTS
+-------------------------------------------------------------------------------
 
 In this comprehensive documentation, we have explored the Real-Time Flash Control software, its underlying structure, and its functionality. The software empowers researchers and scientists to conduct flash experiments with real-time data acquisition and visualization, aiding in the analysis and understanding of transient processes.
 By providing a user-friendly GUI, efficient data acquisition, live plotting, and data storage capabilities, this software streamlines the flash experiment workflow and enhances the accuracy of experimental results. It offers a flexible platform that can be adapted to various experimental setups and research domains.

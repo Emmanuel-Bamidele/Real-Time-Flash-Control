@@ -5,6 +5,7 @@
 -------------------------------------------
 
 © 2023 Emmanuel Bamidele. All rights reserved.
+
 This software and its documentation are protected by copyright law and international treaties. Unauthorized reproduction or distribution of this software, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under law.
 
 Real-time Flash Experiment Control and Visualization software, including all related files, data, and documentation, are the intellectual property of Emmanuel Bamidele.

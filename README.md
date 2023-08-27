@@ -3,20 +3,26 @@
 -------------------------------------------
   COPYRIGHT INFORMATION
 -------------------------------------------
+
 © 2023 Emmanuel Bamidele. All rights reserved.
 This software and its documentation are protected by copyright law and international treaties. Unauthorized reproduction or distribution of this software, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under law.
 
 Real-time Flash Experiment Control and Visualization software, including all related files, data, and documentation, are the intellectual property of Emmanuel Bamidele.
 
-For questions, inquiries, and permissions related to the use and distribution of this software, please contact:
+For questions, inquiries, and precommendations, please contact:
 
 Emmanuel Bamidele
+
 Email: correspondence.bamidele@gmail.com
+
 Website: www.emmanuelbamidele.com
+
+Please feel free to use this software without asking for permissions, however, if a work is published anywhere through the application of this software, please cite this project appropriately. It will motivate the author to know the trend of applications it is been used for and areas of enhancement to prioritize.
 
 -------------------------------------------
       LICENSE INFORMATION
 -------------------------------------------
+
 The Real-time Flash Experiment Control and Visualization software is released under the Apache License, Version 2.0. A copy of the license can be found in the LICENSE file distributed with the software or at:
 
 https://www.apache.org/licenses/LICENSE-2.0
@@ -59,6 +65,7 @@ Are you ready to embark on this journey of exploration and mastery? Let's dive i
 -------------------------------------------
    1. INTRODUCTION
 -------------------------------------------
+
 In this section, you would introduce the purpose of the documentation, the software, and its relevance. You'd provide an overview of what the software does and the benefits it offers to researchers and scientists. The introduction sets the stage for the rest of the documentation by highlighting the importance of the software and its potential impact on flash experiments.
 1.1 Purpose
 The purpose of this documentation is to guide you through every aspect of the Real-Time Flash Control software. Whether you're an experienced researcher looking to optimize your flash experiments or a newcomer eager to understand the capabilities of the software, this documentation is tailored to meet your needs.
@@ -68,6 +75,7 @@ In this documentation, we will cover everything from the fundamental principles 
 -------------------------------------------
    2. SOFTWARE OVERVIEW
 -------------------------------------------
+
 The Real-Time Flash Control software is a cutting-edge tool designed to enhance and streamline flash experiments. It offers real-time control, data acquisition, live plotting, and data storage capabilities, all within an intuitive graphical user interface (GUI). Let's explore its core features in detail:
 
 2.1 Real-Time Control
@@ -93,6 +101,7 @@ Stay tuned as we delve deeper into each feature of the software, providing you w
 -------------------------------------------------------------------------------
    3.UNDERSTANDING THE PROGRAM COMPONENT: CLASSES AND FUNCTIONS
 -------------------------------------------------------------------------------
+
 In this section, we'll delve into the details of the key classes and functions that constitute the real-time data acquisition and monitoring application. Understanding these components is crucial for effectively utilizing, modifying, and extending the application to suit your research needs.
 
 3.1 Classes Overview 

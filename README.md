@@ -99,7 +99,7 @@ Stay tuned as we delve deeper into each feature of the software, providing you w
 
  
 -------------------------------------------------------------------------------
-   3.UNDERSTANDING THE PROGRAM COMPONENT: CLASSES AND FUNCTIONS
+   3. UNDERSTANDING THE PROGRAM COMPONENT: CLASSES AND FUNCTIONS
 -------------------------------------------------------------------------------
 
 In this section, we'll delve into the details of the key classes and functions that constitute the real-time data acquisition and monitoring application. Understanding these components is crucial for effectively utilizing, modifying, and extending the application to suit your research needs.
@@ -169,7 +169,7 @@ Understanding the interactions and dependencies between classes and functions wi
 
  
 -------------------------------------------------------------------------------
-   4.DETAILED DESCRIPTION OF FUNCTIONS AND CLASSES
+   4. DETAILED DESCRIPTION OF FUNCTIONS AND CLASSES
 -------------------------------------------------------------------------------
 
 4.1 The AppRunModule Class
@@ -270,7 +270,7 @@ Understanding the role of each class and function, along with their interactions
 
  
 -------------------------------------------------------------------------------
-   5.STEP-BY-STEP GUIDE ON USING THE SOFTWARE
+   5. STEP-BY-STEP GUIDE ON USING THE SOFTWARE
 -------------------------------------------------------------------------------
 
 This section provides a detailed step-by-step guide on how to use the Real-Time Flash Control software for conducting flash experiments and acquiring real-time data.
@@ -402,7 +402,7 @@ The Real-Time Flash Control software is designed to be customizable to suit vari
  
 
 -------------------------------------------------------------------------------
-   6.CONCLUSION AND FUTURE ENHANCEMENTS
+   6. CONCLUSION AND FUTURE ENHANCEMENTS
 -------------------------------------------------------------------------------
 
 In this comprehensive documentation, we have explored the Real-Time Flash Control software, its underlying structure, and its functionality. The software empowers researchers and scientists to conduct flash experiments with real-time data acquisition and visualization, aiding in the analysis and understanding of transient processes.

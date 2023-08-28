@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------------------
               Real-time Flash Experiment Control and Visualization software
 ------------------------------------------------------------------------------------------
-
               
               Author: Emmanuel Bamidele
+              
 ------------------------------------------------------------------------------------------
 
  
@@ -63,7 +63,7 @@ Bamidele, Emmanuel. (2023). Software Framework for Real-time Flash Control and D
 For the GitHub repository, visit:
 https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
 
-Documentation is available on ResearchGate.  
+Documentation is available on the same GitHub repository as a pdf file.  
 
 -------------------------------------------
     SUMMARY

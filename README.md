@@ -1,8 +1,16 @@
+------------------------------------------------------------------------------------------
+              Real-time Flash Experiment Control and Visualization software
+------------------------------------------------------------------------------------------
 
- 
+              
+              Author: Emmanuel Bamidele
+------------------------------------------------------------------------------------------
+
+ 
 -------------------------------------------
   COPYRIGHT INFORMATION
 -------------------------------------------
+
 
 © 2023 Emmanuel Bamidele. All rights reserved.
 
@@ -33,13 +41,17 @@ https://www.apache.org/licenses/LICENSE-2.0
 -------------------------------------------
 
 Real-time Flash Experiment Control and Visualization software
+
 Version: 1.0
+
 Date: August 2023
+
 
 -------------------------------------------
                  DISCLAIMER
 -------------------------------------------
 The Real-time Flash Experiment Control and Visualization software is provided "as is" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
 The software is intended for research and educational purposes only. It is the responsibility of the user to ensure proper operation and adherence to all applicable laws and regulations while using this software.
 
 -------------------------------------------
@@ -57,10 +69,22 @@ Documentation is available on ResearchGate.  
     SUMMARY
 -------------------------------------------
 Welcome to the Comprehensive Documentation for the Real-Time Flash Control Software! This documentation serves as your comprehensive guide to understanding, utilizing, and maximizing the potential of the Real-Time Flash Control software. Whether you're an experienced researcher seeking to optimize your flash experiments or a newcomer eager to grasp the nuances of the software, this documentation is tailored to cater to your needs.
-Software at a Glance The Real-Time Flash Control software is a cutting-edge tool designed to enhance and streamline flash experiments. It offers real-time control, data acquisition, live plotting, and data storage capabilities, all wrapped within an intuitive graphical user interface (GUI). By delving into this documentation, you're embarking on a journey to harness the power of this software for advancing your research in materials science, physics, and engineering.
-Your Path to Mastery As you navigate through this documentation, you'll explore every facet of the software, from its fundamental principles to its intricate functionalities. Each section is meticulously crafted to provide you with a detailed understanding of the software's architecture, features, and practical applications. Whether you're aiming to conduct flash experiments with precision or seeking to unravel transient phenomena through real-time data visualization, this documentation will equip you with the knowledge and tools to succeed.
-Unveiling Each Layer From the user-friendly GUI to the seamless integration with data acquisition hardware, from live plotting that offers dynamic insights to the meticulous organization of your experimental data, each layer of the software will be peeled back, revealing the mechanisms that empower your research pursuits. By the end of this documentation, you'll not only comprehend the software but also confidently wield it to propel your research endeavors forward.
-Are you ready to embark on this journey of exploration and mastery? Let's dive into the intricate world of the Real-Time Flash Control software and unlock its full potential for your research! 
+
+_Software at a Glance_
+
+The Real-Time Flash Control software is a cutting-edge tool designed to enhance and streamline flash experiments. It offers real-time control, data acquisition, live plotting, and data storage capabilities, all wrapped within an intuitive graphical user interface (GUI). By delving into this documentation, you're embarking on a journey to harness the power of this software for advancing your research in materials science, physics, and engineering.
+
+
+_Your Path to Mastery_
+
+As you navigate through this documentation, you'll explore every facet of the software, from its fundamental principles to its intricate functionalities. Each section is meticulously crafted to provide you with a detailed understanding of the software's architecture, features, and practical applications. Whether you're aiming to conduct flash experiments with precision or seeking to unravel transient phenomena through real-time data visualization, this documentation will equip you with the knowledge and tools to succeed.
+
+
+_Unveiling Each Layer_
+
+From the user-friendly GUI to the seamless integration with data acquisition hardware, from live plotting that offers dynamic insights to the meticulous organization of your experimental data, each layer of the software will be peeled back, revealing the mechanisms that empower your research pursuits. By the end of this documentation, you'll not only comprehend the software but also confidently wield it to propel your research endeavors forward.
+
+Are you ready to embark on this journey of exploration and mastery? Let's dive into the exciting world of the _Real-Time Flash Control software_ and unlock its full potential for your research! 
 
 
 -------------------------------------------

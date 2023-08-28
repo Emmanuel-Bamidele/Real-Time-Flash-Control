@@ -68,9 +68,13 @@ Are you ready to embark on this journey of exploration and mastery? Let's dive i
 -------------------------------------------
 
 In this section, you would introduce the purpose of the documentation, the software, and its relevance. You'd provide an overview of what the software does and the benefits it offers to researchers and scientists. The introduction sets the stage for the rest of the documentation by highlighting the importance of the software and its potential impact on flash experiments.
+
 1.1 Purpose
+
 The purpose of this documentation is to guide you through every aspect of the Real-Time Flash Control software. Whether you're an experienced researcher looking to optimize your flash experiments or a newcomer eager to understand the capabilities of the software, this documentation is tailored to meet your needs.
+
 1.2 Scope
+
 In this documentation, we will cover everything from the fundamental principles of flash experiments to the intricate details of the software's user interface, data acquisition methods, real-time visualization, and data storage. By the end, you'll be equipped with the knowledge and skills to confidently utilize the Real-Time Flash Control software for your research endeavors.
 
 -------------------------------------------
@@ -106,7 +110,9 @@ Stay tuned as we delve deeper into each feature of the software, providing you w
 In this section, we'll delve into the details of the key classes and functions that constitute the real-time data acquisition and monitoring application. Understanding these components is crucial for effectively utilizing, modifying, and extending the application to suit your research needs.
 
 3.1 Classes Overview 
+
 3.1.1 AppRunModule Class
+
 The AppRunModule class encapsulates the primary functions for controlling the execution of the application. It consists of the following methods:
 
 •	try_to_start(): This method attempts to initialize the hardware and start the data acquisition process. It handles any exceptions that may arise during the initialization.
@@ -284,7 +290,8 @@ This section provides a detailed step-by-step guide on how to use the Real-Time 
 •	Make sure you have Python installed on your system. If not, download and install the latest version of Python from the official Python website.
 
 •	Install the required Python packages by running the following command in your command-line interface or terminal:
-pip install matplotlib nidaqmx pyvisa 
+
+```pip install matplotlib nidaqmx pyvisa```
 
 2.	Download the Software:
 
@@ -310,7 +317,11 @@ pip install matplotlib nidaqmx pyvisa
 
 •	In the command-line interface, run the following command to start the Real-Time Flash Control software:
 
-python flash_control_v1.py 
+
+```python 2023_08_26_FlashControl.py```
+
+_Note: be sure you change the name to the name of the python program_
+
 
 •	The GUI window of the software will open, providing you with a user-friendly interface to control the flash experiment.
 

@@ -58,7 +58,7 @@ The software is intended for research and educational purposes only. It is the r
     CITATION INFORMATION
 -------------------------------------------
 To cite the Software Framework for Real-time Flash Control and Data Visualization, please use the following citation:
-Bamidele, Emmanuel. (2023). Software Framework for Real-time Flash Control and Data Visualization [Software framework]. Retrieved from https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
+Bamidele, Emmanuel (2023). Real-Time Flash Experiment Control and Visualization software. figshare. Software. https://doi.org/10.6084/m9.figshare.24054759.v1
 
 For the GitHub repository, visit:
 https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control

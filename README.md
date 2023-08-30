@@ -6,6 +6,19 @@
               
 ------------------------------------------------------------------------------------------
 
+
+-------------------------------------------
+    CITATION INFORMATION
+-------------------------------------------
+To cite the Software Framework for Real-time Flash Control and Data Visualization, please use the following citation:
+
+_Bamidele, Emmanuel (2023). Real-Time Flash Experiment Control and Visualization software. figshare. Software. https://doi.org/10.6084/m9.figshare.24054759.v1_
+
+For the GitHub repository, visit:
+https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
+
+Documentation is available on the same GitHub repository as a pdf file. 
+
  
 -------------------------------------------
   COPYRIGHT INFORMATION
@@ -53,17 +66,7 @@ Date: August 2023
 The Real-time Flash Experiment Control and Visualization software is provided "as is" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
 
 The software is intended for research and educational purposes only. It is the responsibility of the user to ensure proper operation and adherence to all applicable laws and regulations while using this software.
-
--------------------------------------------
-    CITATION INFORMATION
--------------------------------------------
-To cite the Software Framework for Real-time Flash Control and Data Visualization, please use the following citation:
-Bamidele, Emmanuel (2023). Real-Time Flash Experiment Control and Visualization software. figshare. Software. https://doi.org/10.6084/m9.figshare.24054759.v1
-
-For the GitHub repository, visit:
-https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
-
-Documentation is available on the same GitHub repository as a pdf file.  
+ 
 
 -------------------------------------------
     SUMMARY

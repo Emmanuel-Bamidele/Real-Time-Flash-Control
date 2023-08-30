@@ -19,15 +19,14 @@ https://github.com/Emmanuel-Bamidele/Real-Time-Flash-Control
 
 Documentation is available on the same GitHub repository as a pdf file. 
 
+
  
 -------------------------------------------
   COPYRIGHT INFORMATION
 -------------------------------------------
-
-
 © 2023 Emmanuel Bamidele. All rights reserved.
 
-This software and its documentation are protected by copyright law and international treaties. Unauthorized reproduction or distribution of this software, or any portion of it, are not approved. The primary use of this software is for research and educational purpose. Any use for commercial purpose must be discussed with the author. Any publication using this software must properly cite it.
+This software and its documentation are protected by copyright law and international treaties. Unauthorized reproduction or distribution of this software, or any portion of it for commercial purpose, is not approved. The primary use of this software is for research and educational purpose. Any use for commercial purpose must be discussed with the author. Any publication using this software must properly cite it.
 
 Real-time Flash Experiment Control and Visualization software, including all related files, data, and documentation, are the intellectual property of Emmanuel Bamidele.
 

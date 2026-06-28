@@ -1,0 +1,8 @@
+# Runtime dependencies for the full GUI + real-hardware application.
+#
+# Core logic and the built-in simulation mode need NONE of these, so the
+# package can be imported and tested on any machine. Install these only when
+# driving the actual lab rig with a graphical front end.
+matplotlib>=3.5
+nidaqmx>=0.6
+pyvisa>=1.12

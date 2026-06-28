@@ -19,15 +19,19 @@ Key differences from the original single-file GUI:
 from __future__ import annotations
 
 import queue
+import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 from ..config import ConfigError, ExperimentConfig, HardwareConfig
 from ..core.runner import ExperimentRunner, RunResult
-from ..hardware import make_instruments
+from ..hardware import InstrumentStatus, make_instruments
 from .help import show_help
 from .plot import LivePlot, X_OPTIONS, Y_OPTIONS
 from .theme import apply_theme
+
+# Instruments shown in the hardware-status panel, in display order.
+_INSTRUMENT_NAMES = ("NI-DAQ", "Keithley DMM")
 
 # Default field values (label -> default), grouped by panel.
 _HARDWARE_FIELDS = [
@@ -64,8 +68,8 @@ class FlashControlApp:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
         self.root.title("Real-Time Flash Control — Current-Controlled")
-        self.root.geometry("1200x840")
-        self.root.minsize(1080, 800)
+        self.root.geometry("1240x880")
+        self.root.minsize(1120, 820)
         self.theme = apply_theme(root)
         self.p = self.theme.palette
         self._build_menubar()
@@ -74,7 +78,13 @@ class FlashControlApp:
         self.readouts: dict[str, tk.StringVar] = {}
         self._output_dir = ""
         self._queue: "queue.Queue" = queue.Queue()
+        self._status_q: "queue.Queue" = queue.Queue()
         self._handle = None
+
+        # Hardware-readiness state.
+        self._dots: dict[str, tk.Label] = {}
+        self._hardware_ready = False
+        self._checking = False
 
         self.simulate_var = tk.BooleanVar(value=True)
         self.file_name_var = tk.StringVar(value="flash_run")
@@ -145,11 +155,39 @@ class FlashControlApp:
 
         # Clickable Help link on the right of the header.
         link = ttk.Label(header, text="Help  ⓘ", style="HeaderLink.TLabel", cursor="hand2")
-        link.pack(side=tk.RIGHT, padx=(0, 4))
+        link.pack(side=tk.RIGHT, padx=(16, 4))
         link.bind("<Button-1>", lambda _e: self._show_help())
+
+        # At-a-glance hardware connection indicators + a Check action.
+        self._build_connection_indicators(header)
 
         # thin accent underline for a premium finish
         tk.Frame(self.root, background=self.p["accent"], height=3).pack(side=tk.TOP, fill=tk.X)
+
+    def _build_connection_indicators(self, header) -> None:
+        chip = self.p["header_chip"]
+        strip = ttk.Frame(header, style="Header.TFrame")
+        strip.pack(side=tk.RIGHT)
+        for name, short in zip(_INSTRUMENT_NAMES, ("NI-DAQ", "Keithley")):
+            cell = tk.Frame(strip, background=chip)
+            cell.pack(side=tk.LEFT, padx=(0, 8))
+            dot = tk.Label(
+                cell, text="●", background=chip,
+                foreground=self.p["disabled"], font=self.theme.body,
+            )
+            dot.pack(side=tk.LEFT, padx=(8, 4), pady=3)
+            tk.Label(
+                cell, text=short, background=chip, foreground=self.p["header_fg"],
+                font=self.theme.label,
+            ).pack(side=tk.LEFT, padx=(0, 8))
+            self._dots[name] = dot
+
+        self.check_link = tk.Label(
+            strip, text="⟳ Check", background=chip, foreground=self.p["header_fg"],
+            font=self.theme.heading, cursor="hand2", padx=10, pady=3,
+        )
+        self.check_link.pack(side=tk.LEFT, padx=(2, 0))
+        self.check_link.bind("<Button-1>", lambda _e: self._check_hardware())
 
     def _card(self, parent, title) -> ttk.LabelFrame:
         frame = ttk.LabelFrame(parent, text=title, style="Card.TLabelframe")
@@ -200,11 +238,74 @@ class FlashControlApp:
         )
         self.folder_btn.grid(row=1, column=0, columnspan=2, sticky=tk.EW, pady=(5, 2))
 
+    def _check_hardware(self) -> None:
+        if self._checking:
+            return
+        try:
+            hardware = self._build_hardware()
+        except (ConfigError, ValueError) as exc:
+            messagebox.showerror("Invalid settings", str(exc))
+            return
+        simulate = self.simulate_var.get()
+        self._checking = True
+        self.check_link.config(text="⟳ Checking…")
+        self.status_var.set("Checking hardware connection…")
+
+        def work() -> None:
+            try:
+                results = make_instruments(hardware, simulate=simulate).probe()
+            except Exception as exc:  # noqa: BLE001 - surfaced in the status bar
+                results = [
+                    InstrumentStatus(name, False, f"{type(exc).__name__}: {exc}")
+                    for name in _INSTRUMENT_NAMES
+                ]
+            self._status_q.put(results)
+
+        threading.Thread(target=work, name="hw-probe", daemon=True).start()
+        self.root.after(120, self._poll_status)
+
+    def _poll_status(self) -> None:
+        try:
+            results = self._status_q.get_nowait()
+        except queue.Empty:
+            self.root.after(120, self._poll_status)
+            return
+        self._apply_status(results)
+        self._checking = False
+        self.check_link.config(text="⟳ Check")
+
+    def _apply_status(self, results) -> None:
+        """Update the header dots and report full probe detail in the status bar."""
+        by_name = {r.name: r for r in results}
+        all_ok = True
+        parts = []
+        for name in _INSTRUMENT_NAMES:
+            status = by_name.get(name)
+            ok = bool(status and status.ok)
+            self._dots[name].config(
+                foreground=self.p["ok_bright"] if ok else self.p["bad_bright"]
+            )
+            detail = status.detail if status else "no response"
+            parts.append(f"{name}: {'OK' if ok else 'FAIL'} — {detail}")
+            all_ok = all_ok and ok
+        self._hardware_ready = all_ok
+        prefix = "✓ Hardware ready." if all_ok else "✗ Hardware not ready."
+        self.status_var.set(prefix + "   " + "   ·   ".join(parts))
+
+    def _on_simulate_toggle(self) -> None:
+        # Readiness depends on the backend, so invalidate the last check.
+        self._hardware_ready = False
+        for name in _INSTRUMENT_NAMES:
+            self._dots[name].config(foreground=self.p["disabled"])
+        backend = "simulator" if self.simulate_var.get() else "real hardware"
+        self.status_var.set(f"Backend set to {backend}. Click ⟳ Check to verify readiness.")
+
     def _build_run_controls(self, parent) -> None:
         frame = ttk.Frame(parent, style="Card.TFrame", padding=8)
         frame.pack(fill=tk.X, pady=4)
         ttk.Checkbutton(
-            frame, text="Simulate (no hardware)", variable=self.simulate_var
+            frame, text="Simulate (no hardware)", variable=self.simulate_var,
+            command=self._on_simulate_toggle,
         ).pack(anchor=tk.W, pady=(0, 6))
         btns = ttk.Frame(frame, style="Card.TFrame")
         btns.pack(fill=tk.X)
@@ -299,6 +400,14 @@ class FlashControlApp:
             self.status_var.set(f"Error: {exc}")
 
     def _start(self) -> None:
+        # For a real run, nudge the user to confirm the rig is connected.
+        if not self.simulate_var.get() and not self._hardware_ready:
+            if not messagebox.askyesno(
+                "Hardware not verified",
+                "The NI-DAQ and Keithley have not been confirmed as connected.\n\n"
+                "Run “Check Connection” first, or start anyway?",
+            ):
+                return
         try:
             hw = self._build_hardware()
             exp = self._build_experiment()

@@ -19,6 +19,7 @@ PALETTE = {
     "header_bg": "#1E293B",   # dark slate header bar
     "header_fg": "#F8FAFC",
     "header_sub": "#94A3B8",
+    "header_chip": "#2B3B54",  # subtle chip behind the connection indicators
     "card_bg": "#FFFFFF",      # panels / cards
     "card_border": "#E2E8F0",
     "text": "#1F2933",
@@ -32,6 +33,8 @@ PALETTE = {
     "success_hover": "#047857",
     "danger": "#DC2626",       # red (Stop)
     "danger_hover": "#B91C1C",
+    "ok_bright": "#22C55E",    # brighter dot for the dark header
+    "bad_bright": "#F87171",
     "disabled": "#CBD5E1",
     "disabled_fg": "#94A3B8",
     "plot_line1": "#4F46E5",
@@ -221,6 +224,14 @@ def apply_theme(root: tk.Tk) -> Theme:
         foreground="#FFFFFF",
         font=theme.label,
         padding=(8, 3),
+    )
+
+    # Hardware-status detail text
+    style.configure(
+        "StatusName.TLabel", background=p["card_bg"], foreground=p["text"], font=theme.heading
+    )
+    style.configure(
+        "StatusDetail.TLabel", background=p["card_bg"], foreground=p["muted"], font=theme.readout_label
     )
 
     # Notebook (Help tabs)

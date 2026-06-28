@@ -24,15 +24,16 @@ dual-axis plot and tab-separated `.csv` logging.
 
 ## Install
 
-Requires Python 3.9+.
+Three options — see **[INSTALL.md](INSTALL.md)** for full details:
 
-```bash
-# GUI + the built-in simulator (recommended to start)
-pip install -e ".[gui,dev]"
+- **Standalone app (no Python):** download `RealTimeFlashControl` for your OS from
+  the **Releases** page and run it. Best for lab PCs.
+- **pip** (Python 3.9+): `pip install -e ".[gui]"` (add `,hardware` for NI-DAQ +
+  Keithley), then run `flashcontrol`.
+- **Build your own** wheel or executable: `python -m build` / `pyinstaller flashcontrol.spec`.
 
-# also driving real hardware (NI-DAQmx + GPIB/VISA)
-pip install -e ".[gui,hardware]"
-```
+> Driving the real rig also needs the vendor runtimes **NI-DAQmx** and **NI-VISA**
+> installed (separate from this software). **Simulation mode** needs neither.
 
 The core logic and simulation need **none** of the optional dependencies, so the
 test suite runs anywhere.

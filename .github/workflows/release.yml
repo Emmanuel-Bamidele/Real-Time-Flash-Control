@@ -1,0 +1,74 @@
+name: Release
+
+# Build distributable artifacts when a version tag is pushed (e.g. v2.0.0),
+# and attach them to the GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  wheels:
+    name: Build wheel + sdist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade build
+      - run: python -m build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-dist
+          path: dist/*
+
+  executables:
+    name: Standalone app (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Tk (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+
+      - name: Install build deps
+        run: pip install -e ".[gui,build]"
+
+      - name: Build executable
+        run: pyinstaller flashcontrol.spec
+
+      - name: Package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RealTimeFlashControl-${{ matrix.os }}
+          path: |
+            dist/RealTimeFlashControl*
+            !dist/*.tar.gz
+            !dist/*.whl
+
+  release:
+    name: Attach to GitHub Release
+    needs: [wheels, executables]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**/*
+          generate_release_notes: true

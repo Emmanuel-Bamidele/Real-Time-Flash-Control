@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flashcontrol"
+version = "2.0.0"
+description = "Real-time flash (sintering) experiment control, acquisition and visualization."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Emmanuel Bamidele", email = "correspondence.bamidele@gmail.com" }]
+keywords = ["flash-sintering", "materials-science", "daq", "data-acquisition", "keithley"]
+
+# Core logic + simulation run on these only. The GUI and real hardware
+# backends pull in the optional extras below.
+dependencies = []
+
+[project.optional-dependencies]
+gui = ["matplotlib>=3.5"]
+hardware = ["nidaqmx>=0.6", "pyvisa>=1.12"]
+dev = ["pytest>=7.0", "numpy>=1.21"]
+
+[project.scripts]
+flashcontrol = "flashcontrol.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["flashcontrol*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

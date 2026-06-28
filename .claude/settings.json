@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pip install -q -e '.[dev]' >/dev/null 2>&1 || pip install -q pytest numpy >/dev/null 2>&1; echo 'flashcontrol dev deps ready (run: pytest -q)'"
+          }
+        ]
+      }
+    ]
+  }
+}

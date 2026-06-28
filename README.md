@@ -134,7 +134,14 @@ pytest -q
 CI runs the suite and the headless simulation on Python 3.9 / 3.11 / 3.12
 (see `.github/workflows/ci.yml`).
 
-A formal PDF manual is also included: `RealTimeFlashControl_Documentation.pdf`.
+See `CONTRIBUTING.md` for the architecture and extension points, and
+`CHANGELOG.md` for the version history.
+
+> **Documentation note:** the bundled `RealTimeFlashControl_Documentation.pdf`
+> describes the original **v1.0** single-file program and its API
+> (`AppRunModule`, `PlotManager`, etc.), which no longer exist in v2.0. For the
+> current version, use this README and the in-app **Help**. The PDF is retained
+> for historical reference only.
 
 ---
 

@@ -12,6 +12,22 @@ and stays testable.
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class InstrumentStatus:
+    """Result of probing one instrument for readiness.
+
+    ``name``   - human label, e.g. "NI-DAQ" or "Keithley DMM".
+    ``ok``     - True if the instrument is present and responding.
+    ``detail`` - device list / identity string, or the error if not ok.
+    """
+
+    name: str
+    ok: bool
+    detail: str
 
 
 class Instruments(ABC):
@@ -44,6 +60,14 @@ class Instruments(ABC):
     @abstractmethod
     def read_raw_temperature(self) -> float:
         """Read the raw pyrometer signal (convert via ``HardwareConfig``)."""
+
+    @abstractmethod
+    def probe(self) -> List[InstrumentStatus]:
+        """Check that each instrument is connected and responding.
+
+        Does not require :meth:`open`; safe to call at any time. Returns one
+        :class:`InstrumentStatus` per instrument so the UI can show readiness.
+        """
 
     # -- convenience: usable as a context manager -------------------------
     def __enter__(self) -> "Instruments":

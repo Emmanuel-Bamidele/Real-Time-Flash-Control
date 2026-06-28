@@ -19,8 +19,10 @@ from __future__ import annotations
 
 import math
 
+from typing import List
+
 from ..config import HardwareConfig
-from .base import Instruments
+from .base import Instruments, InstrumentStatus
 
 # Model constants (tuned for plausible, not physically exact, behaviour).
 _HEATING_RATE = 1.5  # degC per second per amp of drive
@@ -84,3 +86,10 @@ class SimulatedInstruments(Instruments):
         # Inverse of HardwareConfig.raw_to_celsius so the runner recovers the
         # true temperature through the normal conversion path.
         return (self._temp_c - self.hw.pyro_min_temp) / self.hw.temp_scale
+
+    def probe(self) -> List[InstrumentStatus]:
+        # The simulator is always ready - no hardware to find.
+        return [
+            InstrumentStatus("NI-DAQ", True, "Simulated device — ready"),
+            InstrumentStatus("Keithley DMM", True, "Simulated instrument — ready"),
+        ]

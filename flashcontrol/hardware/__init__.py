@@ -9,9 +9,9 @@ forces a particular backend.
 
 from __future__ import annotations
 
-from .base import Instruments
+from .base import Instruments, InstrumentStatus
 
-__all__ = ["Instruments", "make_instruments"]
+__all__ = ["Instruments", "InstrumentStatus", "make_instruments"]
 
 
 def make_instruments(hardware, *, simulate: bool) -> Instruments:

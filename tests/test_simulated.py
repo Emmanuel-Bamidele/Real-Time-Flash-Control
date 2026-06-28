@@ -39,6 +39,14 @@ def test_reset_and_close_return_to_idle():
     assert sim.read_measured_voltage() == 0.0
 
 
+def test_probe_reports_ready():
+    statuses = SimulatedInstruments(HardwareConfig()).probe()
+    names = {s.name for s in statuses}
+    assert names == {"NI-DAQ", "Keithley DMM"}
+    assert all(s.ok for s in statuses)
+    assert all(s.detail for s in statuses)
+
+
 def test_deterministic():
     hw = HardwareConfig()
     a = SimulatedInstruments(hw)

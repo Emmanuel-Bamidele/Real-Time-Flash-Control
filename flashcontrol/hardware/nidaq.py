@@ -11,8 +11,10 @@ Keithley VISA session is held open for the duration of the run.
 
 from __future__ import annotations
 
+from typing import List
+
 from ..config import HardwareConfig
-from .base import Instruments
+from .base import Instruments, InstrumentStatus
 
 
 class NiDaqInstruments(Instruments):
@@ -82,3 +84,42 @@ class NiDaqInstruments(Instruments):
         if self._multimeter is None:
             raise RuntimeError("Keithley session is not open; call open() first.")
         return abs(float(self._multimeter.query(":SENSE:DATA:FRESh?")))
+
+    # -- readiness probe --------------------------------------------------
+    def probe(self) -> List[InstrumentStatus]:
+        """Detect the DAQ device and query the Keithley identity (no run needed)."""
+        results: List[InstrumentStatus] = []
+
+        # NI-DAQ: confirm the configured device is present in the system.
+        try:
+            system = self._nidaqmx.system.System.local()
+            devices = [d.name for d in system.devices]
+            want = self.hw.current_channel.split("/")[0]  # e.g. "Dev1"
+            present = ", ".join(devices) if devices else "none"
+            if want in devices:
+                results.append(
+                    InstrumentStatus("NI-DAQ", True, f"'{want}' connected (devices: {present})")
+                )
+            else:
+                results.append(
+                    InstrumentStatus(
+                        "NI-DAQ", False, f"'{want}' not found (devices present: {present})"
+                    )
+                )
+        except Exception as exc:  # driver missing / DAQ subsystem error
+            results.append(InstrumentStatus("NI-DAQ", False, f"{type(exc).__name__}: {exc}"))
+
+        # Keithley: open the VISA session and ask for its identity.
+        try:
+            rm = self._pyvisa.ResourceManager()
+            address = f"GPIB0::{self.hw.keithley_address}::INSTR"
+            inst = rm.open_resource(address)
+            try:
+                idn = str(inst.query("*IDN?")).strip()
+            finally:
+                inst.close()
+            results.append(InstrumentStatus("Keithley DMM", True, idn or f"Responding at {address}"))
+        except Exception as exc:
+            results.append(InstrumentStatus("Keithley DMM", False, f"{type(exc).__name__}: {exc}"))
+
+        return results

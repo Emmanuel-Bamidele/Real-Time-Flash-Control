@@ -52,6 +52,31 @@ compute the current limit, choose an output folder, and press **Start**.
 See **Help → Setup & Hardware Guide** in the app (or the header **Help** link)
 for setup, the equipment list, and how to cite.
 
+## Checking hardware readiness
+
+The header shows live **connection indicators** for the **NI-DAQ** and the
+**Keithley**. Click **⟳ Check** to probe them:
+
+- It lists the connected NI-DAQ devices and confirms the configured device exists.
+- It opens the GPIB/VISA session and queries the Keithley `*IDN?` identity.
+- Each dot turns **green** (connected) or **red** (not found / error), and the
+  status bar shows the full detail (device list, instrument identity, or the error).
+
+In **Simulate** mode both report ready immediately. When running on real hardware,
+if you press **Start** without a successful check, the app asks you to confirm.
+
+## Testing
+
+```bash
+pip install -e ".[dev]"     # pytest + numpy; no GUI/hardware needed
+pytest -q                   # run the unit test suite (config, runner, simulation, writer)
+
+python -m flashcontrol --simulate-headless   # end-to-end simulated run, no GUI
+```
+
+The suite runs anywhere because the core logic and simulation import no
+Tk/matplotlib/driver code. CI runs it on Python 3.9 / 3.11 / 3.12.
+
 ## Hardware & equipment
 
 The experiment is current-controlled: the DAQ commands the supply current via an
